@@ -6,11 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.ubaya.informatika.a160718012_midtermproject.R
 import id.ac.ubaya.informatika.a160718012_midtermproject.viewmodel.ListViewModel
 import kotlinx.android.synthetic.main.fragment_book_list.*
@@ -38,12 +36,12 @@ class BookListFragment : Fragment() {
         recView.layoutManager = GridLayoutManager(context,2)
         recView.adapter = bookListAdapter
 
-        refreshLayout.setOnRefreshListener {
+        refreshLayoutRead.setOnRefreshListener {
             recView.visibility = View.GONE
             txtError.visibility = View.GONE
             progLoad.visibility = View.VISIBLE
             viewModel.refresh()
-            refreshLayout.isRefreshing = false
+            refreshLayoutRead.isRefreshing = false
         }
 
         observeViewModel()

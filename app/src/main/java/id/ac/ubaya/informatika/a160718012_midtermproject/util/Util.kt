@@ -28,3 +28,23 @@ fun ImageView.loadImage(url:String?, progressBar: ProgressBar){
         })
 
 }
+
+fun ImageView.loadImageSquare(url:String?, progressBar: ProgressBar){
+    Picasso.get()
+        .load(url)
+        .resize(1000, 1000)
+        .centerCrop()
+        .error(R.drawable.ic_baseline_error_24)
+        .into(this, object: Callback{
+            override fun onSuccess() {
+                progressBar.visibility = View.GONE
+            }
+
+            override fun onError(e: Exception?) {
+                Log.d("errorLoadImage", e.toString())
+
+            }
+
+        })
+
+}

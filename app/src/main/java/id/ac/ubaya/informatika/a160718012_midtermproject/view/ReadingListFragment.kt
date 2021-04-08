@@ -8,12 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.ubaya.informatika.a160718012_midtermproject.R
 import id.ac.ubaya.informatika.a160718012_midtermproject.viewmodel.ListViewModel
-import kotlinx.android.synthetic.main.fragment_book_list.*
-import kotlinx.android.synthetic.main.fragment_book_list.recView
 import kotlinx.android.synthetic.main.fragment_reading_list.*
 
 class ReadingListFragment : Fragment() {
@@ -36,6 +33,11 @@ class ReadingListFragment : Fragment() {
         recView.layoutManager = LinearLayoutManager(context)
         recView.adapter = bookListAdapter
 
+        refreshLayoutRead.setOnRefreshListener {
+            recView.visibility = View.GONE
+            viewModel.refresh()
+            refreshLayoutRead.isRefreshing = false
+        }
 
 
         observeViewModel()

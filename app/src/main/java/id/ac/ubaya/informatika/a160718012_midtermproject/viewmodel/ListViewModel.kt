@@ -11,11 +11,14 @@ import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import id.ac.ubaya.informatika.a160718012_midtermproject.model.Book
+import id.ac.ubaya.informatika.a160718012_midtermproject.model.Quote
 
 class ListViewModel(application: Application): AndroidViewModel(application){
     //bookS -> jamak, nampung banyak object -> List<Book>
     //LD = LiveData biar programmer tau ini variable utk LiveData, bukan var biasa
     var booksLD = MutableLiveData<List<Book>>()
+    var quotesLD = MutableLiveData<List<Quote>>()
+
     //menyimpan kondisi apakah recyclerView berhasil load/ada error?
     val loadingErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
@@ -55,6 +58,19 @@ class ListViewModel(application: Application): AndroidViewModel(application){
 
         var books:ArrayList<Book> = arrayListOf<Book>(book1, book2, book3, book4, book5, book6);
         booksLD.value = books;
+
+
+
+        val quote1 = Quote("The 7 Habits of Highly Effective People","Stephen R. Covey","https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1421842784l/36072.jpg",
+            "Treat a man as he is and he will remain as he is. Treat a man as he can and should be and he will become as he can and should be.")
+        val quote2 = Quote("The Psychology of Money","Morgan Housel","https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1581527774l/41881472._SY475_.jpg",
+            "Some people are born into families that encourage education; others are against it. Some are born into flourishing economies encouraging of entrepreneurship; others are born into war and destitution. I want you to be successful, and I want you to earn it. But realize that not all success is due to hard work, and not all poverty is due to laziness. Keep this in mind when judging people, including yourself.")
+        val quote3 = Quote("Think Like A Monk","Jay Shatty","https://images-na.ssl-images-amazon.com/images/I/71ru1Xg+VyL.jpg"
+                ,"When you try to live your most authentic life, some of your relationships will be put in jeopardy. Losing them is a risk worth bearing; finding a way to keep them in your life is a challenge worth taking on.")
+
+        var quotes:ArrayList<Quote> = arrayListOf<Quote>(quote1,quote2,quote3);
+        quotesLD.value = quotes;
+
         loadingLD.value = true
         loadingErrorLD.value = false
 
