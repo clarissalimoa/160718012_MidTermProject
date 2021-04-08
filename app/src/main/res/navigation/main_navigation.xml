@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/itemHome">
+
+    <fragment
+        android:id="@+id/itemHome"
+        android:name="id.ac.ubaya.informatika.a160718012_midtermproject.view.BookListFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_book_list" >
+        <action
+            android:id="@+id/actionHomeToDetail"
+            app:destination="@id/detailBookFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailBookFragment"
+        android:name="id.ac.ubaya.informatika.a160718012_midtermproject.view.DetailBookFragment"
+        android:label="Book Detail"
+        tools:layout="@layout/fragment_detail_book" >
+        <argument
+            android:name="bookId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemRead"
+        android:name="id.ac.ubaya.informatika.a160718012_midtermproject.view.ReadingListFragment"
+        android:label="Your Reading List"
+        tools:layout="@layout/fragment_reading_list">
+        <action
+            android:id="@+id/actionReadToDetail"
+            app:destination="@id/detailBookFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemQuotes"
+        android:name="id.ac.ubaya.informatika.a160718012_midtermproject.view.QuotesFragment"
+        android:label="Quotes of The Day"
+        tools:layout="@layout/fragment_quotes" />
+    <fragment
+        android:id="@+id/itemProfile"
+        android:name="id.ac.ubaya.informatika.a160718012_midtermproject.view.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
