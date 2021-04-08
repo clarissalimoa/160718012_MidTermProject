@@ -57,11 +57,12 @@ class BookListFragment : Fragment() {
         })
 
         viewModel.loadingErrorLD.observe(viewLifecycleOwner, Observer{
+            txtError.setText(R.string.error_load)
             txtError.visibility =if(it) View.VISIBLE else View.GONE
         })
 
         viewModel.loadingLD.observe(viewLifecycleOwner, Observer{
-            progLoad.visibility =if(it) View.VISIBLE else View.GONE
+            progLoad.visibility =if(it) View.GONE else View.VISIBLE
             Log.d("showLoadingListFragment", it.toString())
         })
     }

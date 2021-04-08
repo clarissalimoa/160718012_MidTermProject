@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import id.ac.ubaya.informatika.a160718012_midtermproject.R
 import id.ac.ubaya.informatika.a160718012_midtermproject.util.loadImage
 import id.ac.ubaya.informatika.a160718012_midtermproject.viewmodel.ListViewModel
@@ -30,6 +32,8 @@ class QuotesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        Toast.makeText(context, "Swipe down to get another quote ;)", Toast.LENGTH_SHORT).show()
 
         viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
         viewModel.refresh()
